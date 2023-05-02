@@ -4,43 +4,36 @@
  */
 package Vistas;
 
-import Controlador.ControladorLogin;
-import DAO.DAOLogin;
+
+import interfacesprogramacion.Cine;
 import javax.swing.JOptionPane;
 
+
 /**
- *Esta clase inicia la interfaz grafica del login (iniciar seción)
- * @author gabriela Delgado
- * Version: 1.0
+ *
+ * @author sistemas
  */
 public class Login extends javax.swing.JFrame {
 
-    // En esta variable se guardara el estado de la clase Login
-    private static Login login;
-    
-    // En esta variable se guardara el estado de la clase ControladorLogin
-    private DAOLogin cLogin = ControladorLogin.getControlaodrLogin();
-    
+    public static Login Login;
+    String textoUsuario;
+    String textoContrasenia;
     /**
-     * Constructo de tipo privado en la clase lOGIN
+     * Creates new form Login
      */
-    private Login() {
+    public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-       
     }
     
-    /**
-     * Devuelve una instancia de la clase Login
-     * @return login
-     */
     public static Login getLogin(){
-        if(login == null){
-            login = new Login();
-        }
-        return login;
+        
+        if (Login == null)
+            Login = new Login();
+        
+        return Login;
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -51,12 +44,10 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         olvido = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
-        usuario = new javax.swing.JTextField();
-        contrasenia = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        contrasenia = new javax.swing.JTextField();
+        usuario = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -71,18 +62,22 @@ public class Login extends javax.swing.JFrame {
                 olvidoMouseExited(evt);
             }
         });
-        getContentPane().add(olvido, java.awt.BorderLayout.PAGE_END);
 
-        jPanel1.setLayout(new java.awt.GridLayout(0, 1));
+        jButton1.setText("Iniciar sesion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Logo");
-        jPanel1.add(jLabel6);
+        contrasenia.setText("Contraseña");
+        contrasenia.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                contraseniaMouseClicked(evt);
+            }
+        });
 
-        jPanel2.setLayout(new java.awt.GridLayout(0, 1));
-
-        usuario.setText("Usuario...");
+        usuario.setText("Usuario");
         usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 usuarioMouseClicked(evt);
@@ -93,64 +88,116 @@ public class Login extends javax.swing.JFrame {
                 usuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(usuario);
 
-        contrasenia.setText("Contraseña");
-        contrasenia.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                contraseniaMouseClicked(evt);
-            }
-        });
-        jPanel2.add(contrasenia);
+        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cinemark_logo-_1_ (1)_1.png"))); // NOI18N
 
-        jButton1.setText("Iniciar sesion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1);
-
-        jPanel1.add(jPanel2);
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(olvido, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(contrasenia, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE)
+                            .addComponent(usuario)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(167, 167, 167))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(olvido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     public String ConcatenarUsuario(String textoUser){
+        String pant=usuario.getText();
+        if(pant.equals("Usuario")){
+            pant=textoUser;
+        }else{
+            pant+=textoUser;
+        }
+        return pant;
+    }
+     
+      public String ConcatenarContrasenia(String textoPassword){
+        String pantC=contrasenia.getText();
+        if(pantC.equals("Contraseña")){
+            pantC = textoPassword;
+        }else{
+            pantC += textoPassword;
+        }
+        return pantC;
+    }
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
         
-    // Aqui se realiza la verificacion con los parametro de usuario y contraseña
-    // Utilizamos un condicional if para la verificación
+        ControladorLogin cLogin = new ControladorLogin(usuario.getText(), contrasenia.getText());
         
-        if (cLogin.VerificarUsuarios(usuario.getText(), contrasenia.getText()))
-            JOptionPane.showMessageDialog(this, "Usuario correcto", "Información", JOptionPane.INFORMATION_MESSAGE);
-        else
-            JOptionPane.showMessageDialog(this, "Usuario incorrecto", "Información", JOptionPane.ERROR_MESSAGE);
+        boolean inicio = cLogin.VerificarUsuarios(cLogin.usuario, cLogin.contrasenia);
+        
+        if (inicio == true){
+            Cine.getCine().setVisible(true);
+            dispose();
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioActionPerformed
-        // No se ha realizado nada
+        // TODO add your handling code here:
     }//GEN-LAST:event_usuarioActionPerformed
 
     private void usuarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usuarioMouseClicked
-        // Se utiliza para que al momento de presionar el textfield se borre el texto que ya esta
-        usuario.setText("");
+        // TODO add your handling code here:
+        String pantallaUsuario = usuario.getText();
+ 
+        if(!usuario.getText().contains(".")){
+            usuario.setText(ConcatenarUsuario(""));
+        }
     }//GEN-LAST:event_usuarioMouseClicked
 
     private void contraseniaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contraseniaMouseClicked
         // TODO add your handling code here:
-        // Se utiliza para que al momento de presionar el textfield se borre el texto que ya esta
-        contrasenia.setText("");
+        
+         String pant=contrasenia.getText();
+       
+        if(!contrasenia.getText().contains("contrasenia")){
+            contrasenia.setText(ConcatenarContrasenia(""));
+        }
     }//GEN-LAST:event_contraseniaMouseClicked
 
     private void olvidoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_olvidoMouseEntered
-        // Color de texto en el boton
-        olvido.setForeground(new java.awt.Color(204, 0, 0));
+        // TODO add your handling code here:
+        olvido.setForeground(new java.awt.Color(0, 0, 150));
     }//GEN-LAST:event_olvidoMouseEntered
 
     private void olvidoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_olvidoMouseExited
-        // Color de texto en el boton
+        // TODO add your handling code here:
         olvido.setForeground(new java.awt.Color(0, 0, 0));
     }//GEN-LAST:event_olvidoMouseExited
 
@@ -159,8 +206,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JTextField contrasenia;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel olvido;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
