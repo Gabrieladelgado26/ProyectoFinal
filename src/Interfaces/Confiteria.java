@@ -24,7 +24,7 @@ public class Confiteria extends javax.swing.JFrame {
     }
 
      //implementar singleton
-    public static Confiteria getMenuPrincipal(){
+    public static Confiteria getConfiteria(){
         if(confiteria==null){
             confiteria = new Confiteria();
         }
