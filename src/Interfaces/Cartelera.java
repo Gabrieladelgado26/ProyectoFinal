@@ -12,6 +12,9 @@ import Interfaces.Cine;
  */
 public class Cartelera extends javax.swing.JFrame {
 
+     //SINGLETON
+    private static Cartelera cartelera;
+    
     /**
      * Creates new form Cartelera
      */
@@ -20,6 +23,14 @@ public class Cartelera extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    //implementar singleton
+    public static Cartelera getCartelera(){
+        if(cartelera==null){
+            cartelera = new Cartelera();
+        }
+        return cartelera;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -194,7 +205,7 @@ public class Cartelera extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        new Cine().setVisible(true);
+        Cine.getCine().setVisible(true);
          this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
