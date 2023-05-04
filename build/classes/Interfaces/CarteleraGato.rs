@@ -1,0 +1,3 @@
+interfacesprogramacion.CarteleraGato$1
+interfacesprogramacion.CarteleraGato$2
+interfacesprogramacion.CarteleraGato
