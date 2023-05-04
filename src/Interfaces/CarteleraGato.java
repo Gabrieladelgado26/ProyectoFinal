@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfacesprogramacion;
+package Interfaces;
 
 import Interfaces.Cine;
 
@@ -11,6 +11,9 @@ import Interfaces.Cine;
  * @author INES CHAR
  */
 public class CarteleraGato extends javax.swing.JFrame {
+    
+     //SINGLETON
+    private static CarteleraGato carteleragato;
 
     /**
      * Creates new form CarteleraGato
@@ -19,6 +22,14 @@ public class CarteleraGato extends javax.swing.JFrame {
         initComponents();
     }
 
+    //implementar singleton
+    public static CarteleraGato getCarteleraGato(){
+        if(carteleragato==null){
+            carteleragato = new CarteleraGato();
+        }
+        return carteleragato;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -149,7 +160,7 @@ public class CarteleraGato extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        new Cine().setVisible(true);
+        Cine.getCine().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package interfacesprogramacion;
+package Interfaces;
 
 /**
  *
@@ -10,6 +10,9 @@ package interfacesprogramacion;
  */
 public class Promociones extends javax.swing.JFrame {
 
+    //SINGLETON
+    private static Promociones promociones;
+    
     /**
      * Creates new form Promociones
      */
@@ -17,6 +20,14 @@ public class Promociones extends javax.swing.JFrame {
         initComponents();
         this.dispose();
         this.setLocationRelativeTo(null);
+    }
+    
+     //implementar singleton
+    public static Promociones getPromociones(){
+        if(promociones==null){
+            promociones = new Promociones();
+        }
+        return promociones;
     }
 
     /**
