@@ -5,6 +5,7 @@
 package interfaces;
 
 import Interfaces.Cine;
+import Interfaces.MenuPrincipal;
 
 /**
  *
@@ -12,6 +13,8 @@ import Interfaces.Cine;
  */
 public class Membresia extends javax.swing.JFrame {
 
+    
+    public static Membresia membresia;
     /**
      * Creates new form Membresia
      */
@@ -21,6 +24,14 @@ public class Membresia extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    //implementar singleton
+    public static Membresia getMembresia(){
+        if(membresia==null){
+            membresia = new Membresia();
+        }
+        return membresia;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -172,7 +183,7 @@ public class Membresia extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        new Cine().setVisible(true);
+        Cine.getCine().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton6ActionPerformed
 
