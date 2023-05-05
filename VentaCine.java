@@ -19,6 +19,7 @@ public class VentaCine extends javax.swing.JFrame {
      */
     public VentaCine() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     //implementar singleton
@@ -39,17 +40,59 @@ public class VentaCine extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        total = new javax.swing.JTextField();
+        botonCalcular = new javax.swing.JButton();
+        botonCambiar = new javax.swing.JButton();
         peliculas = new javax.swing.JComboBox<>();
-        cantidadPersonas = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
         duracion = new javax.swing.JTextField();
-        total = new javax.swing.JTextField();
-        botonCambiar = new javax.swing.JButton();
-        botonCalcular = new javax.swing.JButton();
+        cantidadPersonas = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        botonCalcular1 = new javax.swing.JButton();
+        botonCalcular2 = new javax.swing.JButton();
+        botonCalcular3 = new javax.swing.JButton();
+        botonCalcular4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+        jPanel2.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 150, -1));
+
+        botonCalcular.setBackground(new java.awt.Color(204, 0, 0));
+        botonCalcular.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcular.setText("CALCULAR");
+        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 120, 30));
+
+        botonCambiar.setBackground(new java.awt.Color(204, 0, 0));
+        botonCambiar.setForeground(new java.awt.Color(255, 255, 255));
+        botonCambiar.setText("CAMBIAR");
+        botonCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambiarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 90, 30));
 
         peliculas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "El gato con botas", "Creed", "Quantumania", "Scream 6" }));
         peliculas.addActionListener(new java.awt.event.ActionListener() {
@@ -57,49 +100,127 @@ public class VentaCine extends javax.swing.JFrame {
                 peliculasActionPerformed(evt);
             }
         });
-        jPanel1.add(peliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 150, 20));
-        jPanel1.add(cantidadPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 150, -1));
+        jPanel2.add(peliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, 150, 20));
 
         precio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 precioActionPerformed(evt);
             }
         });
-        jPanel1.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 150, -1));
-        jPanel1.add(duracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 150, -1));
+        jPanel2.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 150, -1));
+        jPanel2.add(duracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 150, -1));
+        jPanel2.add(cantidadPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 150, -1));
 
-        total.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(204, 0, 0));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("PELICULA");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 150, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 560, -1));
 
-        botonCambiar.setText("CAMBIAR");
-        botonCambiar.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setBackground(new java.awt.Color(204, 0, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("PELICULA");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCambiarActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, 30));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 560, -1));
 
-        botonCalcular.setText("CALCULAR");
-        botonCalcular.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("PELICULA");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonCalcularActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 120, 30));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 560, -1));
+
+        jButton5.setBackground(new java.awt.Color(204, 0, 0));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setText("PELICULA");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 560, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        botonCalcular1.setBackground(new java.awt.Color(204, 0, 0));
+        botonCalcular1.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcular1.setText("CANTIDAD DE PERSONAS");
+        botonCalcular1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcular1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 170, 30));
+
+        botonCalcular2.setBackground(new java.awt.Color(204, 0, 0));
+        botonCalcular2.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcular2.setText("PELICULA");
+        botonCalcular2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcular2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 120, 30));
+
+        botonCalcular3.setBackground(new java.awt.Color(204, 0, 0));
+        botonCalcular3.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcular3.setText("PRECIO");
+        botonCalcular3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcular3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, 120, 30));
+
+        botonCalcular4.setBackground(new java.awt.Color(204, 0, 0));
+        botonCalcular4.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcular4.setText("DURACIÓN");
+        botonCalcular4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcular4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(botonCalcular4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 120, 30));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Iconos/Cinemark - Producción de Video Comercial Tarjeta Elite Gold (1).gif"))); // NOI18N
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 660, 340));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 360));
+
+        jButton2.setBackground(new java.awt.Color(204, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("FACTURAR");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 700, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -151,15 +272,14 @@ public class VentaCine extends javax.swing.JFrame {
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
         // TODO add your handling code here:
         
-        int cantidadPelicula;
-        int valorPrecio;
-        int descuentoPelicula;
+        String cantidadPelicula;
+        String valorPrecio;
         String totalVenta;
         
-        cantidadPelicula = Integer.parseInt(cantidadPersonas.getText());
-        valorPrecio = Integer.parseInt(precio.getText());
+        cantidadPelicula = (cantidadPersonas.getText());
+        valorPrecio = (precio.getText());
         
-        totalVenta = Integer.toString(cantidadPelicula * valorPrecio);
+        totalVenta = (cantidadPelicula * valorPrecio);
 
         total.setText(totalVenta);
   
@@ -182,6 +302,45 @@ public class VentaCine extends javax.swing.JFrame {
         total.setText(totalVenta);
         
     }//GEN-LAST:event_totalActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        //MUESTRA LA SIGUIENTE PANTALLA
+        Login.getLogin().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void botonCalcular1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcular1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCalcular1ActionPerformed
+
+    private void botonCalcular2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcular2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCalcular2ActionPerformed
+
+    private void botonCalcular3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcular3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCalcular3ActionPerformed
+
+    private void botonCalcular4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcular4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCalcular4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,10 +379,22 @@ public class VentaCine extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCalcular;
+    private javax.swing.JButton botonCalcular1;
+    private javax.swing.JButton botonCalcular2;
+    private javax.swing.JButton botonCalcular3;
+    private javax.swing.JButton botonCalcular4;
     private javax.swing.JButton botonCambiar;
     private javax.swing.JTextField cantidadPersonas;
     private javax.swing.JTextField duracion;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JComboBox<String> peliculas;
     private javax.swing.JTextField precio;
     private javax.swing.JTextField total;
