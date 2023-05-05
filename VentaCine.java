@@ -40,7 +40,6 @@ public class VentaCine extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         peliculas = new javax.swing.JComboBox<>();
-        descuento = new javax.swing.JTextField();
         cantidadPersonas = new javax.swing.JTextField();
         precio = new javax.swing.JTextField();
         duracion = new javax.swing.JTextField();
@@ -59,7 +58,6 @@ public class VentaCine extends javax.swing.JFrame {
             }
         });
         jPanel1.add(peliculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 150, 20));
-        jPanel1.add(descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 150, -1));
         jPanel1.add(cantidadPersonas, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 150, -1));
 
         precio.addActionListener(new java.awt.event.ActionListener() {
@@ -69,10 +67,21 @@ public class VentaCine extends javax.swing.JFrame {
         });
         jPanel1.add(precio, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 150, -1));
         jPanel1.add(duracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 150, -1));
-        jPanel1.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 150, -1));
+
+        total.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalActionPerformed(evt);
+            }
+        });
+        jPanel1.add(total, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 150, -1));
 
         botonCambiar.setText("CAMBIAR");
-        jPanel1.add(botonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 90, 30));
+        botonCambiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCambiarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonCambiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, 90, 30));
 
         botonCalcular.setText("CALCULAR");
         botonCalcular.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +89,7 @@ public class VentaCine extends javax.swing.JFrame {
                 botonCalcularActionPerformed(evt);
             }
         });
-        jPanel1.add(botonCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 100, 90, 30));
+        jPanel1.add(botonCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 120, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,10 +151,10 @@ public class VentaCine extends javax.swing.JFrame {
     private void botonCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularActionPerformed
         // TODO add your handling code here:
         
-        int cantidadPelicula = 0;
-        int valorPrecio = 0;
-        int descuentoPelicula = 0;
-        String totalVenta = "";
+        int cantidadPelicula;
+        int valorPrecio;
+        int descuentoPelicula;
+        String totalVenta;
         
         cantidadPelicula = Integer.parseInt(cantidadPersonas.getText());
         valorPrecio = Integer.parseInt(precio.getText());
@@ -153,12 +162,26 @@ public class VentaCine extends javax.swing.JFrame {
         totalVenta = Integer.toString(cantidadPelicula * valorPrecio);
 
         total.setText(totalVenta);
-        
-        if (cantidadPelicula > 3){
-            
-        }
-        
+  
     }//GEN-LAST:event_botonCalcularActionPerformed
+
+    private void botonCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambiarActionPerformed
+        // TODO add your handling code here:
+        
+        precio.setText(null);
+        duracion.setText(null);
+        cantidadPersonas.setText(null);
+        total.setText(null);
+        
+    }//GEN-LAST:event_botonCambiarActionPerformed
+
+    private void totalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalActionPerformed
+        String totalVenta = null;
+        // TODO add your handling code here:
+        
+        total.setText(totalVenta);
+        
+    }//GEN-LAST:event_totalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,7 +222,6 @@ public class VentaCine extends javax.swing.JFrame {
     private javax.swing.JButton botonCalcular;
     private javax.swing.JButton botonCambiar;
     private javax.swing.JTextField cantidadPersonas;
-    private javax.swing.JTextField descuento;
     private javax.swing.JTextField duracion;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JComboBox<String> peliculas;
